@@ -8,7 +8,22 @@
   <ul>
   <li><a href="googlecloud/telewaifus-1322534341684170752-img1.jpg"><img src="googlecloud/telewaifus-1322534341684170752-img1.jpg" alt="example.png" width="200"></a></li>
   <li><a href="googlecloud/telewaifus-1237796172292657152-img1.jpg"><img src="googlecloud/telewaifus-1237796172292657152-img1.jpg" alt="example.png" width="200"></a></li>
+  <br/>
 
+  <div id="image-list"></div>
+  <script>
+  fetch('/images')
+    .then(response => response.json())
+    .then(images => {
+      const container = document.getElementById('image-list');
+      images.forEach(img => {
+        const imageElem = document.createElement('img');
+        imageElem.src = './googlecloud/' + img;
+        imageElem.alt = img;
+        container.appendChild(imageElem);
+      });
+    });
+</script>
     
   </ul>
   <p>For a complete list, <a href="https://github.com/Fortfite/miscfiles/search?type=code&q=png+OR+jpg+OR+jpeg+OR+gif+OR+svg+OR+webp+OR+bmp">search the repository for images</a>.</p>
